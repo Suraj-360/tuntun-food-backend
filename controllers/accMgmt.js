@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/User')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const getRandomGradient = require('../utils/gradientGenerator');
 
 const fetchUserData = async (req, res) => {
