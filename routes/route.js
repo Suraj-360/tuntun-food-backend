@@ -18,7 +18,7 @@ router.post("/insert-category-name/",insertCategoryName)
 router.post("/signup/",signup);
 router.get("/verify-email/", verifyEmail);
 router.post("/login/",login);
-router.post("/foodData",getFoodData);
+router.post("/foodData/",getFoodData);
 router.post("/addfooddata/",addFoodData);
 router.post("/order-food/", authorization, orderFood);
 router.post("/fetch-order-history/",authorization, getAllOrdersWithFood);
