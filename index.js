@@ -3,11 +3,11 @@ require('dotenv').config();
 const app = express();
 const DBConnect = require('./config/DBConnect');
 const router = require('./routes/route');
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+//const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
 
 // CORS Middleware
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
+    res.setHeader("Access-Control-Allow-Origin", 'http://localhost:3000');
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     
