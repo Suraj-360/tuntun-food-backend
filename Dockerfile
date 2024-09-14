@@ -3,9 +3,9 @@ FROM node:18
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
-# Rebuild native modules
+# Rebuild native modules if necessary
 RUN npm rebuild bcrypt --build-from-source
 
 COPY . .
