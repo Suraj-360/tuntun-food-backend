@@ -1,15 +1,20 @@
+# Use Node.js 18 base image
 FROM node:18
 
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
-RUN npm ci
 
-# Rebuild native modules if necessary
-RUN npm rebuild bcrypt --build-from-source
+# Install dependencies
+RUN npm install
 
+# Copy the rest of the application code
 COPY . .
 
+# Expose port 5000
 EXPOSE 5000
 
-CMD ["node", "index.js"]
+# Command to run the application
+CMD [ "node", "index.js" ]
