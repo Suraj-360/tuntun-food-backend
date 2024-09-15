@@ -73,8 +73,7 @@ const getFoodData = async (req, res) => {
         // Sending the fetched data as a response
         return res.status(200).json({
             message: "Data Fetched Successfully",
-            foodData,
-            foodCategory
+            data:[foodData,foodCategory]
         });
     } catch (error) {
         return res.status(500).json({
