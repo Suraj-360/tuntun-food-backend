@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Food = require('../models/Food'); // Ensure the path to the Food model is correct
+const category = require('../models/category');
 
 const addFoodData = async (req, res) => {
     try {
@@ -31,7 +32,7 @@ const addFoodData = async (req, res) => {
         });
     }
 }
-
+/*
 const getFoodData = async (req, res) => {
     try {
         // Check if the database connection is established
@@ -52,6 +53,28 @@ const getFoodData = async (req, res) => {
         return res.status(200).json({
             message: "Data Fetched!!",
             data:[data1,data2]
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Data Fetch Failed!!",
+            error: error.message
+        });
+    }
+}*/
+
+const getFoodData = async (req, res) => {
+    try {
+        // Fetch all the documents from the Food collection
+        const foodData = await Food.find();
+
+        // Assuming you also want to fetch all categories
+        const foodCategory = await category.find();
+
+        // Sending the fetched data as a response
+        return res.status(200).json({
+            message: "Data Fetched Successfully",
+            foodData,
+            foodCategory
         });
     } catch (error) {
         return res.status(500).json({
